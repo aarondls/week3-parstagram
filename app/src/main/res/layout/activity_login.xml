@@ -52,6 +52,7 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPersonName"
+        android:password="true"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="86dp" />
 </RelativeLayout>
