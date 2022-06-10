@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -18,13 +18,13 @@
         android:text="Logout" />
 
     <ImageButton
-        android:id="@+id/btnCreatePost"
+        android:id="@+id/create_post_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="78dp"
         android:layout_marginBottom="37dp"
-        android:layout_toStartOf="@+id/btnLogout"
+        android:layout_toStartOf="@+id/logout_button"
         android:backgroundTint="#6200EE"
         app:srcCompat="@android:drawable/ic_menu_add" />
 </RelativeLayout>
