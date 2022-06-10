@@ -17,20 +17,20 @@ import java.util.List;
 public class CreatePostActivity extends AppCompatActivity {
     public static final String TAG = "CreatePostActivity";
 
-    private EditText etDescription;
-    private Button btnTakePic;
-    private Button btnSubmit;
-    private ImageView ivPostImage;
+    private EditText description_edittext;
+    private Button take_pic_button;
+    private Button submit_button;
+    private ImageView post_image_imageview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
 
-        etDescription = findViewById(R.id.etDescription);
-        btnTakePic = findViewById(R.id.btnTakePic);
-        btnSubmit = findViewById(R.id.btnSubmit);
-        ivPostImage = findViewById(R.id.ivPostImage);
+        description_edittext = findViewById(R.id.description_edittext);
+        take_pic_button = findViewById(R.id.take_pic_button);
+        submit_button = findViewById(R.id.submit_button);
+        post_image_imageview = findViewById(R.id.post_image_imageview);
         
         queryPosts();
     }
