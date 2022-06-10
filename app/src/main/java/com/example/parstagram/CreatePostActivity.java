@@ -25,8 +25,6 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import org.parceler.Parcels;
-
 import java.io.File;
 import java.util.List;
 
@@ -77,11 +75,6 @@ public class CreatePostActivity extends AppCompatActivity {
                 SavePost(post);
 
                 // return to main activity happens inside save post
-//                Intent intent = new Intent();
-//                intent.putExtra("post", Parcels.wrap(post));
-//                intent.putExtra("post", post);
-//                setResult(RESULT_OK, intent);
-//                finish();
             }
         });
     }

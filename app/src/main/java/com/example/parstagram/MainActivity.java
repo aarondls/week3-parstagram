@@ -19,8 +19,6 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import org.parceler.Parcels;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,18 +124,4 @@ public class MainActivity extends AppCompatActivity {
         queryPosts();
     }
 
-    //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        Log.i(TAG, "OnActivityResult");
-//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-//            // Get data from the intent
-////            Post post = Parcels.unwrap(data.getParcelableExtra("post"));
-//            Post post = (Post) data.getExtras().getSerializable("post");
-//            // update recyclerview with tweet
-//            all_posts.add(0, post);
-//            adapter.notifyItemInserted(0);
-//            posts_recycler_view.smoothScrollToPosition(0);
-//        }
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
 }
