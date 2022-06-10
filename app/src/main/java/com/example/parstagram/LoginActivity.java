@@ -17,8 +17,8 @@ import com.parse.ParseUser;
 public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
 
-    private EditText edittext_username;
-    private EditText edittext_password;
+    private EditText username_edittext;
+    private EditText password_edittext;
     private Button button_login;
 
     @Override
@@ -32,15 +32,15 @@ public class LoginActivity extends AppCompatActivity {
             GoToMainActivity();
         }
 
-        edittext_username = findViewById(R.id.edittext_username);
-        edittext_password = findViewById(R.id.edittext_password);
+        username_edittext = findViewById(R.id.username_edittext);
+        password_edittext = findViewById(R.id.password_edittext);
         button_login = findViewById(R.id.button_login);
 
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = edittext_username.getText().toString();
-                String password = edittext_password.getText().toString();
+                String username = username_edittext.getText().toString();
+                String password = password_edittext.getText().toString();
 
                 LoginUser(username, password);
             }
