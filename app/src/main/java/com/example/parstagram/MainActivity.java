@@ -1,5 +1,6 @@
 package com.example.parstagram;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +19,15 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
+    public static final int REQUEST_CODE = 22;
+
     private Button logout_button;
     private ImageButton create_post_button;
     private RecyclerView posts_recycler_view;
@@ -70,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // move to activity to create new post
                 Intent i = new Intent(MainActivity.this, CreatePostActivity.class);
+//                startActivityForResult(i, REQUEST_CODE);
                 startActivity(i);
             }
         });
@@ -115,7 +121,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG, "Resuming: ");
+        Log.i(TAG, "onResume");
+        // may need a way here to delay?
         queryPosts();
     }
+
+    //    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        Log.i(TAG, "OnActivityResult");
+//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+//            // Get data from the intent
+////            Post post = Parcels.unwrap(data.getParcelableExtra("post"));
+//            Post post = (Post) data.getExtras().getSerializable("post");
+//            // update recyclerview with tweet
+//            all_posts.add(0, post);
+//            adapter.notifyItemInserted(0);
+//            posts_recycler_view.smoothScrollToPosition(0);
+//        }
+//        super.onActivityResult(requestCode, resultCode, data);
+//    }
 }

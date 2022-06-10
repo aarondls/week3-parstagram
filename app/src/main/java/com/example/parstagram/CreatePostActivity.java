@@ -25,6 +25,8 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import org.parceler.Parcels;
+
 import java.io.File;
 import java.util.List;
 
@@ -68,8 +70,18 @@ public class CreatePostActivity extends AppCompatActivity {
                     Toast.makeText(CreatePostActivity.this, "There is no image", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                ParseUser current_user = ParseUser.getCurrentUser();
-                SavePost(description, current_user, photo_file);
+                Post post = new Post();
+                post.setDescription(description);
+                post.setImage(new ParseFile(photo_file));
+                post.setUser(ParseUser.getCurrentUser());
+                SavePost(post);
+
+                // return to main activity happens inside save post
+//                Intent intent = new Intent();
+//                intent.putExtra("post", Parcels.wrap(post));
+//                intent.putExtra("post", post);
+//                setResult(RESULT_OK, intent);
+//                finish();
             }
         });
     }
@@ -113,25 +125,29 @@ public class CreatePostActivity extends AppCompatActivity {
         }
     }
 
-    private void SavePost(String description, ParseUser current_user, File photo_file) {
-        Post post = new Post();
-        post.setDescription(description);
-        post.setImage(new ParseFile(photo_file));
-        post.setUser(current_user);
+
+    private void SavePost(Post post) {
         // Save post to parse
+
+        // use save instead of saveinbackground to hold up until it is sent
+        // may want to use refresh indicator
+
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e != null) {
                     Log.e(TAG, "Error while saving", e);
                     Toast.makeText(CreatePostActivity.this, "Error while saving", Toast.LENGTH_SHORT).show();
+                    finish();
                     return;
                 }
                 Log.i(TAG, "Saved post");
                 // Clear description field
                 description_edittext.setText("");
                 post_image_imageview.setImageResource(0);
+                finish();
             }
         });
+
     }
 }
