@@ -8,10 +8,10 @@
     tools:context=".LoginActivity">
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
+        android:layout_below="@+id/edittext_password"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="90dp"
@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="165dp" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/edittext_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -40,10 +40,10 @@
         tools:layout_editor_absoluteY="33dp" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/edittext_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etUsername"
+        android:layout_below="@+id/edittext_username"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="35dp"
