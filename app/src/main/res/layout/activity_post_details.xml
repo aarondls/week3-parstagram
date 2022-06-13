@@ -21,15 +21,16 @@
 
     <ImageView
         android:id="@+id/detailed_post_image_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         android:layout_below="@+id/detailed_username_text_view"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
