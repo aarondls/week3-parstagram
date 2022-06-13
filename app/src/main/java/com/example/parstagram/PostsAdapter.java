@@ -1,6 +1,8 @@
 package com.example.parstagram;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -42,16 +46,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         return posts.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView username_text_view;
         private ImageView post_image_image_view;
         private TextView description_text_view;
+        private String post_object_id;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username_text_view = itemView.findViewById(R.id.username_text_view);
             post_image_image_view = itemView.findViewById(R.id.post_image_image_view);
             description_text_view = itemView.findViewById(R.id.description_text_view);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Post post) {
@@ -61,6 +67,23 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(post_image_image_view);
+            }
+            post_object_id = post.getObjectId();
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            // make sure the position is valid
+            if (position != RecyclerView.NO_POSITION) {
+                Post post = posts.get(position);
+
+                // create intent for the new activity
+                Intent intent = new Intent(context, PostDetailsActivity.class);
+                // pass only the post id since entire post is not parcelable
+                intent.putExtra(Post.class.getSimpleName(), Parcels.wrap(post_object_id));
+                // show the activity
+                context.startActivity(intent);
             }
         }
     }
