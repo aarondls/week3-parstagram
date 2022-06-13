@@ -19,7 +19,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText username_edittext;
     private EditText password_edittext;
-    private Button button_login;
+    private Button login_button;
+    private Button signup_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +35,26 @@ public class LoginActivity extends AppCompatActivity {
 
         username_edittext = findViewById(R.id.username_edittext);
         password_edittext = findViewById(R.id.password_edittext);
-        button_login = findViewById(R.id.button_login);
+        login_button = findViewById(R.id.login_button);
+        signup_button = findViewById(R.id.signup_button);
 
-        button_login.setOnClickListener(new View.OnClickListener() {
+        login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = username_edittext.getText().toString();
                 String password = password_edittext.getText().toString();
 
                 LoginUser(username, password);
+            }
+        });
+
+        signup_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = username_edittext.getText().toString();
+                String password = password_edittext.getText().toString();
+
+                SignupUser(username, password);
             }
         });
     }
@@ -61,11 +73,32 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseUser user, ParseException e) {
                 if (e != null) {
                     Log.e(TAG, "Issue with login", e);
+                    Toast.makeText(LoginActivity.this, "Unable to log in. Perhaps create new account.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
                 // go to main activity with correct login
                 GoToMainActivity();
+            }
+        });
+    }
+
+    private void SignupUser(String username, String password) {
+        ParseUser user = new ParseUser();
+        user.setUsername(username);
+        user.setPassword(password);
+
+        user.signUpInBackground(e -> {
+            if (e == null) {
+                // Succeed
+                // Show success
+                Toast.makeText(LoginActivity.this, "Successfully created new account", Toast.LENGTH_SHORT).show();
+                // go to main activity with correct login
+                GoToMainActivity();
+            } else {
+                // Sign up didn't succeed
+                // Show exception
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
