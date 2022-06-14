@@ -49,20 +49,25 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
+    /**
+     * The onCreateView method is called when Fragment should create its View object hierarchy,
+     * either dynamically or via XML layout inflation.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
         return inflater.inflate(R.layout.fragment_home, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    /**
+     * This event is triggered soon after onCreateView(). Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
-
         create_post_button = view.findViewById(R.id.create_post_button);
         posts_recycler_view = view.findViewById(R.id.posts_recycler_view);
         swipe_container = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
@@ -82,7 +87,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // move to activity to create new post
                 Intent i = new Intent(getContext(), CreatePostActivity.class);
-//                startActivityForResult(i, REQUEST_CODE);
                 startActivity(i);
             }
         });

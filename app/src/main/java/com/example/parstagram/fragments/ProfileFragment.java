@@ -39,20 +39,29 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // The onCreateView method is called when Fragment should create its View object hierarchy,
-    // either dynamically or via XML layout inflation.
+    /**
+     * The onCreateView method is called when Fragment should create its View object hierarchy, either dynamically or via XML layout inflation.
+     *
+     * @param inflater
+     * @param parent
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
         return inflater.inflate(R.layout.fragment_profile, parent, false);
     }
 
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    /**
+     * This event is triggered soon after onCreateView(). Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
-
         logout_button = view.findViewById(R.id.logout_button);
         profile_username_textview = view.findViewById(R.id.profile_username_textview);
         profile_date_created_textview = view.findViewById(R.id.profile_date_created_textview);
