@@ -59,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Handles moving to the main activity.
+     */
     private void GoToMainActivity() {
         Log.i(TAG, "Moving to main activity");
         Intent i = new Intent(this, MainActivity.class);
@@ -66,6 +69,12 @@ public class LoginActivity extends AppCompatActivity {
         finish(); // to prevent moving back
     }
 
+    /**
+     * Handles logging in user given username and password.
+     *
+     * @param username  username of the user
+     * @param password  password of the user
+     */
     private void LoginUser(String username, String password) {
         Log.i(TAG, "Logging in: " + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
@@ -83,6 +92,12 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Handles signing up a new user.
+     *
+     * @param username username of the new user
+     * @param password password of the new user
+     */
     private void SignupUser(String username, String password) {
         ParseUser user = new ParseUser();
         user.setUsername(username);

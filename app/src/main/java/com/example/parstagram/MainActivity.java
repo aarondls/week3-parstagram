@@ -50,11 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (item.getItemId()) {
                     case R.id.home_action:
-                        // do something here
                         fragment = new HomeFragment();
                         break;
                     case R.id.profile_action:
-                        // do something here
                         fragment = new ProfileFragment();
                         break;
                     default:

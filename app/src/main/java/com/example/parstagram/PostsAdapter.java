@@ -60,8 +60,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             itemView.setOnClickListener(this);
         }
 
+        /**
+         * Bind the post data to the view elements
+         *
+         * @param post  the post to bind to the view
+         */
         public void bind(Post post) {
-            // Bind the post data to the view elements
             username_text_view.setText(post.getUser().getUsername());
             description_text_view.setText(post.getDescription());
             ParseFile image = post.getImage();
@@ -88,13 +92,19 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         }
     }
 
-    // Clean all elements of the recycler
+    /**
+     * Remove all existing posts
+     */
     public void clear() {
         posts.clear();
         notifyDataSetChanged();
     }
 
-    // Add a list of items -- change to type used
+    /**
+     * Add a list of posts
+     *
+     * @param list
+     */
     public void addAll(List<Post> list) {
         posts.addAll(list);
         notifyDataSetChanged();

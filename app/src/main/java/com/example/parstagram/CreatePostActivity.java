@@ -72,13 +72,15 @@ public class CreatePostActivity extends AppCompatActivity {
                 post.setDescription(description);
                 post.setImage(new ParseFile(photo_file));
                 post.setUser(ParseUser.getCurrentUser());
-                SavePost(post);
-
                 // return to main activity happens inside save post
+                 SavePost(post);
             }
         });
     }
 
+    /**
+     * Handles opening the camera and saving the photo taken.
+     */
     private void launchCamera() {
         // create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -93,7 +95,12 @@ public class CreatePostActivity extends AppCompatActivity {
         }
     }
 
-    // Returns the File for a photo stored on disk given the fileName
+    /**
+     * Returns the file for a photo stored on disk given the fileName
+     *
+     * @param fileName
+     * @return
+     */
     public File getPhotoFileUri(String fileName) {
         File mediaStorageDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
 
@@ -118,13 +125,13 @@ public class CreatePostActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Saves post to parse. Handles returning the activity to main activity when post
+     * has successfully been uploaded.
+     *
+     * @param post
+     */
     private void SavePost(Post post) {
-        // Save post to parse
-
-        // use save instead of saveinbackground to hold up until it is sent
-        // may want to use refresh indicator
-
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {

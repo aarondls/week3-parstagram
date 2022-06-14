@@ -43,7 +43,9 @@ public class PostDetailsActivity extends AppCompatActivity {
         readObject();
     }
 
-    // sets all relevant information using the post object id
+    /**
+     * Sets all relevant information of the post using the post object id
+     */
     private void readObject() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
         query.include(Post.KEY_USER);
@@ -65,6 +67,12 @@ public class PostDetailsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Returns the time ago as an English phrase given a date.
+     *
+     * @param createdAt the date to be converted to English
+     * @return
+     */
     private static String calculateTimeAgo(Date createdAt) {
 
         final int SECOND_MILLIS = 1000;
