@@ -39,6 +39,7 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
+- [x] Make the status bar light to match app theme
 - [x] Display user information like date account was created
 
 Two areas of the assignment that would be nice to discuss further:
