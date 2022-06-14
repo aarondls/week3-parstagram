@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.14026236125126135" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.302" />
         <entry key="app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.302" />
         <entry key="app/src/main/res/layout/activity_create_post.xml" value="0.408233642578125" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2587158203125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34831237792968783" />
